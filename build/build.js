@@ -6,7 +6,9 @@ var pipe_img_top;
 var background_img;
 let playerBird = []
 
-let socket = io("http://localhost:3333/")
+port = process.env.PORT || 3333;
+
+let socket = io(`http://localhost:${port}/`)
 let start = false;
 let isLife = true;
 let topPipe = 0;
@@ -150,7 +152,7 @@ function print_background() {
     image(background_img, 0, 0, windowWidth, windowHeight);
 }
 function addPipe() {
-    if (frameCount % 200 === 0) {
+    if (frameCount % 100 === 0) {
         pipes.push(new Pipe(pipe_img_top, pipe_img_bottom));
     }
 }

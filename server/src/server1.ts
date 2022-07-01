@@ -37,9 +37,9 @@ function addUsers(socket) {
 
     users.push(socket);
 
-    if(users.length !== 4) {
+    if(users.length !== 2) {
         console.log(`Esperando outros jogadores ${users.length}/4}`)
-    } else if (users.length === 4) {
+    } else if (users.length === 2) {
         console.log(`Esperando outros jogadores ${users.length}/4}`)
         sepateTeam(users);
         for(let user of users) {
@@ -52,7 +52,7 @@ io.on("connection", (socket) => {
 
     
     addUsers(socket);
-    if (users.length === 4) {
+    if (users.length === 2) {
         io.emit("start");
     }
     
@@ -104,7 +104,7 @@ io.on("connection", (socket) => {
         team2.players = [];
 
         addUsers(socket);
-        if (users.length === 4) {
+        if (users.length === 2) {
             io.emit("start");
         }
     })
