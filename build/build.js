@@ -6,7 +6,7 @@ var pipe_img_top;
 var background_img;
 let playerBird = []
 
-port = process.env.PORT || 3333;
+const port = process.env.PORT || 3333;
 
 let socket = io(`http://localhost:${port}/`)
 let start = false;
