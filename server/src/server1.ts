@@ -4,6 +4,7 @@ import http from "http";
 import path from "path";
 
 export const port = process.env.PORT || 3333;
+console.log(`Server is running on port ${port}`);
 
 let users = []
 const team1 = {
