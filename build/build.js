@@ -7,7 +7,7 @@ var background_img;
 let playerBird = []
 
 
-let socket = io(`http://localhost:3333/`)
+let socket = io();
 let start = false;
 let isLife = true;
 let topPipe = 0;

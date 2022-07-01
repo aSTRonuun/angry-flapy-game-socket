@@ -3,7 +3,7 @@ import socketio from "socket.io";
 import http from "http";
 import path from "path";
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3333;
 
 let users = []
 const team1 = {
@@ -14,6 +14,8 @@ const team2 = {
     pontuation: 50,
     players: []
 };
+
+let qtdPlayer = 4;
 
 const app = express();
 const httpServer = http.createServer(app);
@@ -37,9 +39,9 @@ function addUsers(socket) {
 
     users.push(socket);
 
-    if(users.length !== 2) {
+    if(users.length !== qtdPlayer) {
         console.log(`Esperando outros jogadores ${users.length}/4}`)
-    } else if (users.length === 2) {
+    } else if (users.length === qtdPlayer) {
         console.log(`Esperando outros jogadores ${users.length}/4}`)
         sepateTeam(users);
         for(let user of users) {
@@ -52,7 +54,7 @@ io.on("connection", (socket) => {
 
     
     addUsers(socket);
-    if (users.length === 2) {
+    if (users.length === qtdPlayer) {
         io.emit("start");
     }
     
@@ -99,12 +101,12 @@ io.on("connection", (socket) => {
 
     socket.on("restart", () => {
         team1.pontuation = 50;
-        team2.players = [];
+        team1.players = [];
         team2.pontuation = 50;
         team2.players = [];
 
         addUsers(socket);
-        if (users.length === 2) {
+        if (users.length === qtdPlayer) {
             io.emit("start");
         }
     })
