@@ -3,6 +3,8 @@ import socketio from "socket.io";
 import http from "http";
 import path from "path";
 
+const port = process.env.PORT || 3333;
+
 let users = []
 const team1 = {
     pontuation: 50,
@@ -115,4 +117,4 @@ io.on("connection", (socket) => {
 })
 
 
-httpServer.listen(3333);
+httpServer.listen(port);

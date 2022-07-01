@@ -3,10 +3,9 @@
     "version": "1.0.0",
     "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1",
-      "start": "run-p start-compile start-run",
       "start-compile": "tsc --watch",
       "start-run": "browser-sync start --server -w",
-      "dev": "ts-node-dev --transpile-only server/src/server1.ts"
+      "start": "ts-node-dev --transpile-only server/src/server1.ts"
     },
     "devDependencies": {
       "@types/express": "^4.17.13",
