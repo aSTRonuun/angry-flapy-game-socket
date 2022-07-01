@@ -6,9 +6,8 @@ var pipe_img_top;
 var background_img;
 let playerBird = []
 
-import { port } from "../server/src/server1";
 
-let socket = io(`http://localhost:${port}/`)
+let socket = io(`http://localhost:3333/`)
 let start = false;
 let isLife = true;
 let topPipe = 0;

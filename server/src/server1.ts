@@ -3,8 +3,7 @@ import socketio from "socket.io";
 import http from "http";
 import path from "path";
 
-export const port = process.env.PORT || 3333;
-console.log(`Server is running on port ${port}`);
+const port = process.env.PORT || 3000;
 
 let users = []
 const team1 = {
