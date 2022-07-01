@@ -26,6 +26,7 @@ socket.on("newPlayer", (id) => {
         id: id,
         bird: new Bird(other_player)
     });
+    console.log(playerBird.length)
 })
 
 socket.on("up", (id) => {

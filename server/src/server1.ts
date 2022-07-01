@@ -52,13 +52,18 @@ function addUsers(socket) {
 
 io.on("connection", (socket) => {
 
-    
-    addUsers(socket);
-    if (users.length === qtdPlayer) {
-        io.emit("start");
+    if (users.length < qtdPlayer) {
+        addUsers(socket);
+        if (users.length === qtdPlayer) {
+            console.log("Jogo iniciado");
+            io.emit("start");
+        }   
+    } else {
+        socket.disconnect()
     }
     
-
+    
+    
 
     socket.on("hit", (id) => {
         for(let player of team1.players) {
